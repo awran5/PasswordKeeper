@@ -40,7 +40,7 @@ export default function Footer() {
         </Typography>
 
         <Typography variant='body2' color='textSecondary' align='center'>
-          <Link color='inherit' href='https://github.com/awran5/'>
+          <Link color='inherit' href='https://github.com/awran5/PasswordKeeper'>
             Github
           </Link>
         </Typography>
