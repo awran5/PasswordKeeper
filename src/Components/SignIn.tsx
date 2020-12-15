@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import Link from '@material-ui/core/Link'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -22,13 +23,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    height: '100%',
+    overflow: 'hidden',
+    padding: 15,
   },
   avatar: {
-    margin: theme.spacing(1),
+    marginTop: 50,
     backgroundColor: '#fff',
     width: theme.spacing(6),
     height: theme.spacing(6),
@@ -46,7 +49,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
   },
   button: {
-    margin: theme.spacing(1),
     height: theme.spacing(7),
     fontSize: '14px',
     textTransform: 'capitalize',
@@ -151,6 +153,16 @@ export default function SignIn() {
                 {signInError}
               </Typography>
             )}
+          </div>
+          <div style={{ marginTop: 'auto' }}>
+            <Typography variant='h6' align='center'>
+              Password<b>Keeper</b>
+            </Typography>
+            <Typography variant='body2' color='textSecondary' align='center'>
+              <Link color='inherit' href='https://github.com/awran5/PasswordKeeper'>
+                Github
+              </Link>
+            </Typography>
           </div>
         </div>
       </Grid>

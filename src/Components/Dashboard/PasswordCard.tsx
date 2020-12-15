@@ -11,9 +11,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   card: {
     height: '100%',
     display: 'flex',
-    alignItems: 'center',
     padding: theme.spacing(1, 2),
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+  },
+  cardAction: {
+    marginLeft: 'auto',
   },
 }))
 
@@ -40,28 +42,41 @@ export default function PasswordCard({ handleModal, storedValues }: PasswordCard
   return (
     <Grid container spacing={2}>
       {storedValues.length > 0 ? (
-        storedValues.map(({ title, password }, index) => (
-          <Grid item key={index} xs={12} sm={6}>
-            <Card className={classes.card}>
-              <Typography variant='subtitle1' component='h6'>
-                {title}
-              </Typography>
-              <CardActions>
-                <Button size='small' variant='outlined' color='secondary' onClick={() => handleModal('remove', index)}>
-                  remove
-                </Button>
-                <Button
-                  size='small'
-                  variant='contained'
-                  color='primary'
-                  onClick={(event) => handleCopy(event, title, password)}
-                >
-                  copy
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))
+        storedValues.map(({ title, password, createdAt }, index) => {
+          const time = new Date(createdAt.seconds * 1000)
+
+          return (
+            <Grid item key={index} xs={12} sm={6}>
+              <Card className={classes.card}>
+                <Typography variant='subtitle1' component='h6'>
+                  {title}
+                </Typography>
+                <Typography variant='body2' color='textSecondary'>
+                  {time.toLocaleString()}
+                </Typography>
+
+                <CardActions className={classes.cardAction}>
+                  <Button
+                    size='small'
+                    variant='outlined'
+                    color='secondary'
+                    onClick={() => handleModal('remove', index)}
+                  >
+                    remove
+                  </Button>
+                  <Button
+                    size='small'
+                    variant='contained'
+                    color='primary'
+                    onClick={(event) => handleCopy(event, title, password)}
+                  >
+                    copy
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          )
+        })
       ) : (
         <Typography variant='h5' align='center' color='textSecondary' style={{ width: '100%' }}>
           No Passwords

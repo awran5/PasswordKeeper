@@ -14,14 +14,19 @@
   password: string
 }
 
+interface TimeStamp {
+  nanoseconds: number
+  seconds: number
+}
+
  interface PasswordList {
-  createdAt: string
+  createdAt: TimeStamp
   password: string
   title: string
 }
 
  interface Users {
-  createdAt: string
+  createdAt: TimeStamp
   displayName: string
   email: string
   id: string

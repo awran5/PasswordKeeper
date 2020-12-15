@@ -30,7 +30,7 @@ export default function Footer() {
             rel='noopener noreferrer'
             target='_blank'
           >
-            Firebase
+            Firestore
           </Link>{' '}
           database, hashed by{' '}
           <Link title='crypto' href='https://www.npmjs.com/package/crypto-js'>
