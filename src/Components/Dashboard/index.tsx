@@ -57,10 +57,10 @@ export default function Dashboard() {
   const [storedValues, setStoredValues] = useState<Array<PasswordList>>([])
 
   useEffect(() => {
-    if (!users) return
+    if (!currentUser) return
 
-    users.map((user) => setStoredValues(user.passwordList))
-  }, [users])
+    users && users.map((user) => user.id === currentUser.uid && setStoredValues(user.passwordList))
+  }, [users, currentUser])
 
   const handleReset = () => {
     if (isRemove) setRemove(false)
@@ -179,6 +179,8 @@ export default function Dashboard() {
       } else handleAdd()
     }
   }
+
+  console.log(storedValues)
 
   return (
     <Layout>
