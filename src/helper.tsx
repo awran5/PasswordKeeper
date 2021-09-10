@@ -1,6 +1,6 @@
 function arrayRange(from: number, to: number) {
   const array = []
-  for (let i = from; i <= to; i++) {
+  for (let i = from; i <= to; i += 1) {
     array.push(i)
   }
   return array
@@ -8,7 +8,8 @@ function arrayRange(from: number, to: number) {
 
 /**
  * Returns a random string that generated from a specified sequence of UTF-8/16 character codes.
- * @link https://www.w3schools.com/charsets/ref_html_utf8.asp
+ *
+ * @see https://www.w3schools.com/charsets/ref_html_utf8.asp
  * @tutorial https://www.youtube.com/watch?v=iKo9pDKKHnc&t=59s
  *
  */
@@ -30,7 +31,7 @@ export function generatePassword(
   if (includeNumbers) charCodes = [...charCodes, ...getNumbers]
   if (includeSymbols) charCodes = [...charCodes, ...getSymbol]
 
-  for (let i = 0; i < charlength; i++) {
+  for (let i = 0; i < charlength; i += 1) {
     const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
     passwords.push(String.fromCharCode(characterCode))
   }
@@ -38,17 +39,11 @@ export function generatePassword(
   return passwords.join('')
 }
 
-export function isValidate(valuesArray: Array<PasswordList>, title: string, password: string) {
-  let titleError = ''
-  let passwordError = ''
-  const storedTitle = valuesArray.find((item) => item.title === title)
-
-  if (!title) {
-    titleError = 'Please add a password title'
-  } else if (storedTitle) {
-    titleError = 'You already have this title'
-  } else if (!password) {
-    passwordError = 'Please generate a password first'
-  }
-  return { titleError, passwordError }
-}
+export const timeFormat = (date: number) =>
+  new Date(date * 1000).toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  })

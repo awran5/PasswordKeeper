@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   footer: {
     padding: theme.spacing(3),
     marginTop: 'auto',
-    backgroundColor: '#fff',
-  },
+    backgroundColor: '#fff'
+  }
 }))
 
 export default function Footer() {

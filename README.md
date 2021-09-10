@@ -1,6 +1,6 @@
 # PasswordKeeper
 
-> PasswordKeeper is a free password generator/manager tool build with React allows you to create and store random strong passwords and access from anywhere!
+PasswordKeeper is a free password generator/manager tool build with React allows you to create and store random strong passwords and access from anywhere!
 
 <p align="center">
   <img src="./screenshot.gif" alt="screenshot" width="100%" />
